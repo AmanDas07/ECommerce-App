@@ -34,7 +34,7 @@ const ProductDetails = () => {
     const getSimilarProduct = async (pid, cid) => {
         try {
             const { data } = await axios.get(
-                ``${process.env.REACT_APP_API}/api/v1/product/related-product/${pid}/${cid}`
+                `${process.env.REACT_APP_API}/api/v1/product/related-product/${pid}/${cid}`
             );
             setRelatedProducts(data?.products);
         } catch (error) {
