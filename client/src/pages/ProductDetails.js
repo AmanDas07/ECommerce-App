@@ -78,7 +78,7 @@ const ProductDetails = () => {
                         {relatedProducts?.map((p) => (
                             <div className="card m-2" key={p._id} style={{ width: '18rem', border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
                                 <img
-                                    src={`/api/v1/product/product-photo/${p._id}`}
+                                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                                     className="card-img-top"
                                     alt={p.name}
                                     style={{ height: '200px', objectFit: 'cover', borderBottom: '1px solid #ddd' }}
