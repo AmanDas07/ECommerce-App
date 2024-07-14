@@ -22,7 +22,7 @@ const UpdateProduct = () => {
     //get single product
     const getSingleProduct = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/product/get-product/${params.slug}`)
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/get-product/${params.slug}`)
             setName(data.product.name)
             setId(data.product._id)
             setDescription(data.product.description)
@@ -43,7 +43,7 @@ const UpdateProduct = () => {
 
     const getAllCategory = async () => {
         try {
-            const { data } = await axios.get('/api/v1/category/get-category')
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`)
             if (data?.success) {
                 setCategories(data?.category)
             }
@@ -68,7 +68,7 @@ const UpdateProduct = () => {
             productData.append('quantity', quantity)
             photo && productData.append('photo', photo)
             productData.append('category', category)
-            const { data } = axios.put(`/api/v1/product/update-product/${id}`, productData)
+            const { data } = axios.put`${process.env.REACT_APP_API}`/api/v1/product/update-product/${id}`, productData)
             if (data?.success) {
                 toast.error(data?.message)
             }
@@ -87,7 +87,7 @@ const UpdateProduct = () => {
         try {
             let answer = window.prompt("Are you Sure you want to delete this product ? ");
             if (!answer) return;
-            await axios.delete(`/api/v1/product/delete-product/${id}`)
+            await axios.delete(`${process.env.REACT_APP_API}/api/v1/product/delete-product/${id}`)
             toast.success("Product Deleted Successfully")
             navigate('/dashboard/admin/products')
         } catch (error) {
