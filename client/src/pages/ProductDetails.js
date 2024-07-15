@@ -48,7 +48,7 @@ const ProductDetails = () => {
                 <div className="row product-details" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
                     <div className="col-md-6" style={{ textAlign: 'center' }}>
                         <img
-                            src={`/api/v1/product/product-photo/${product._id}`}
+                            src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
                             alt={product.name}
                             style={{ maxHeight: '400px', maxWidth: '100%', objectFit: 'contain', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
                         />
